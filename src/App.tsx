@@ -1,35 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Form } from 'react-bootstrap';
+import './index.css';
+import React, { useRef, useState } from 'react';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const searchInput = useRef<HTMLInputElement| null>(null);
+  const [query, setQuery] = useState<string>();
+
+  const handleSearch = (event: React.ChangeEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    console.log('submitted');
+  };
+
+  const handleSelection = (selection: string) => {
+    setQuery(selection);
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className='container'>
+      <h1 className='title'>Image Search</h1>
+      <div className='search-section'>
+        <Form onSubmit={handleSearch}>
+          <Form.Control type='search' placeholder='Type something to search...' className='search-input' value={query} ref={searchInput} />
+        </Form>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <div className='filters'>
+        <div onClick={() => handleSelection('nature')}>Nature</div>
+        <div onClick={() => handleSelection('birds')}>Birds</div>
+        <div onClick={() => handleSelection('cats')}>Cats</div>
+        <div onClick={() => handleSelection('shoes')}>Shoes</div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    </div>
+  );
+};
 
-export default App
+export default App;
