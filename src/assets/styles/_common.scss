@@ -1,0 +1,47 @@
+$primary: #4967ff;
+
+@mixin padding-horizontal($padding){
+  padding-left: $padding;
+  padding-right: $padding;
+}
+
+@mixin padding-vertical($padding){
+  padding-top: $padding;
+  padding-bottom: $padding;
+}
+
+@mixin margin-horizontal($margin){
+  margin-left: $margin;
+  margin-right: $margin;
+}
+
+@mixin margin-vertical($margin){
+  margin-top: $margin;
+  margin-bottom: $margin;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+
+/* images section ends */
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .images {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .search-section .search-input {
+    width: 100%;
+    min-width: unset;
+    margin: 0 var(--default-margin);
+  }
+
+  .images {
+    grid-template-columns: 1fr;
+  }
+}

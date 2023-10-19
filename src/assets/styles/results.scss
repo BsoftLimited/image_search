@@ -1,0 +1,151 @@
+@use "common" as *;
+
+.header{
+    width: 100%;
+    position: fixed;
+    background-color: whitesmoke;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include padding-horizontal(40px);
+}
+
+.title-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.header-title{
+    color: $primary;
+    font-size: 20px;
+    @include margin-vertical(10px);
+}
+
+.header-search-input-container{
+    border: $primary solid 2px;
+    border-radius: 50px;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    @include padding-horizontal(4px);
+    @include padding-vertical(10px);
+    @include margin-vertical(15px);
+}
+
+.header-search-input{
+    border: none;
+    background-color: transparent;
+    color: grey;
+    width: 360px;
+    font-size: smaller;
+    &:focus{
+        outline: none;
+    }
+}
+
+.results-container{
+    padding-top: 100px;
+}
+
+.results-header{
+    margin-top: var(--medium-margin);
+    font-size: 20px;
+    margin-left: 2rem;
+    margin-bottom: 10px;
+    font-weight: 300;
+    font-family:monospace;
+}
+
+.images {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-gap: 20px;
+    justify-content: center;
+    align-items: center;
+    @include margin-horizontal(40px);
+}
+  
+.image-container {
+    width: 100%;
+}
+
+.image{
+    border-radius: 6px;
+    transition: transform 0.5s;
+    cursor: pointer;
+    width: 100%;
+    &:hover{
+        transform: translateY(-3px);
+    }
+}
+
+@media (max-width: 991px) {
+    .header{
+        @include padding-horizontal(20px);
+    }
+
+    .header-title{
+        font-size: 18px;
+    }
+
+    .results-header{
+        font-size: 18px;
+        margin-left: 20px;
+    }
+
+    .images {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap: 20px;
+        justify-content: center;
+        align-items: center;
+        @include margin-horizontal(20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .header{
+        justify-content:right;
+        @include padding-horizontal(10px);
+    }
+
+    .title-container{
+        gap: 6px;
+    }
+
+    .header-title{
+        display: none;
+    }
+
+    .tools-container{
+        flex: 1;
+        margin-left: 8px;
+    }
+
+    .header-search-input-container{
+        width: 100%;
+    }
+    
+    .header-search-input{
+        flex: 1;
+    }
+
+    .results-header{
+        font-size: 16px;
+        margin-left: 10px;
+    }
+
+    .images {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap: 10px;
+        justify-content: center;
+        align-items: center;
+        @include margin-horizontal(10px);
+    }
+}
