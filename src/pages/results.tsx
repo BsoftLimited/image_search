@@ -68,8 +68,8 @@ const Results = () =>{
                 </div>
                 <div className="tools-container" >
                     <div className="header-search-input-container">
-                        <div style={{ paddingLeft:"5px" }}><BiSearch size={20} color="gray"/></div>
-                        <form target="get">
+                        <div style={{ paddingLeft:"5px", display: "flex", alignItems: "center" }}><BiSearch size={20} color="gray"/></div>
+                        <form target="get" style={{ display: "flex", alignItems: "center" }}>
                             <input type='search' name="q" onChange={onQueryChange} value={query!} placeholder="Type something to search..." className='header-search-input' />
                         </form>
                     </div>
