@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react";
 import "../assets/styles/image-download.scss";
-import axios from "axios";
+//import axios from "axios";
 
 interface ImageDownloadProps extends PropsWithChildren{
     src: string;
