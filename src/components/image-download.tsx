@@ -7,7 +7,7 @@ interface ImageDownloadProps extends PropsWithChildren{
 }
 
 const ImageDownload: React.FC<ImageDownloadProps> = (props: ImageDownloadProps) => {
-    const handleDownload = () => {
+    /*const handleDownload = () => {
         axios({ url: props.src, method: 'GET', responseType: 'blob', headers: { 
             'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Headers': '*',
@@ -25,7 +25,7 @@ const ImageDownload: React.FC<ImageDownloadProps> = (props: ImageDownloadProps) 
         }).catch((error) => {
             console.error('Error downloading image:', error);
         });
-    };
+    };*/
     
     return (<a href={props.src} className="download-button" download>{props.children}</a>);
 };
